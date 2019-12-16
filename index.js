@@ -48,7 +48,7 @@ app.post('/sortsummary', urlencodedParser, function(req, res) {
     mergesort_data_to_send = mergesort_module.mergesorting(arr_for_merge);
     arr_for_quick = arr_to_be_sorted.slice(0);
     quicksort_data_to_send = quicksort_module.quicksorting(arr_for_quick);
-    var responsePage = "<html><title>Project</title><link rel='stylesheet' type='text/css' href='http://localhost:4000/css/defaultstyle.css'><body><div class='main'><p> original array:["+ arr_to_be_sorted +"]</p>";
+    var responsePage = "<html><title>Project</title><link rel='stylesheet' type='text/css' href='http://sorting-demo.herokuapp.com/css/defaultstyle.css'><body><div class='main'><p> original array:["+ arr_to_be_sorted +"]</p>";
     //bubblesort data
     responsePage += "<p><b>Bubblesort data:</b></p>";
     var key = Object.keys(bubblesort_data_to_send);
@@ -101,7 +101,7 @@ app.post('/sort/:sorting_technique', urlencodedParser, function(req, res) {
         arr_to_be_sorted.push(Number(incoming_arr[i]));
     }
     let desc_arr = arr_to_be_sorted.slice(0);
-    var responsePage = "<html><title>Project</title><link rel='stylesheet' type='text/css' href='http://localhost:4000/css/defaultstyle.css'><body><div class='main'><p> original array:["+ arr_to_be_sorted +"]</p>";
+    var responsePage = "<html><title>Project</title><link rel='stylesheet' type='text/css' href='http://sorting-demo.herokuapp.com/css/defaultstyle.css'><body><div class='main'><p> original array:["+ arr_to_be_sorted +"]</p>";
     if(req.params.sorting_technique == 'bubblesort'){
         data_to_send_asc = bubblesort_module.bubblesorting(arr_to_be_sorted);
         data_to_send_desc = bubblesort_module.bubblesorting(desc_arr,1);
