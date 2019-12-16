@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="shortcut icon" href="../img/favicon.ico" />
+  <title>Project</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+* {
+  box-sizing: border-box;
+}
+.menu {
+  float:left;
+  width:20%;
+  text-align:center;
+}
+.menu a {
+  background-color:#e5e5e5;
+  padding:8px;
+  margin-top:7px;
+  display:block;
+  width:100%;
+  color:black;
+}
+.main {
+  float:left;
+  width:60%;
+  padding:0 20px;
+}
+.right {
+  background-color:#e5e5e5;
+  float:left;
+  width:20%;
+  padding:15px;
+  margin-top:7px;
+  text-align:center;
+}
+
+@media only screen and (max-width:620px) {
+  /* For mobile phones: */
+  .menu, .main, .right {
+    width:100%;
+  }
+}
+</style>
+<script> 
+    function callHeapSort(){
+      array_to_sort = document.getElementById("data").value;
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+          document.write(this.responseText);
+        }
+      };
+      xhttp.open("POST", "http://localhost:4000/sort/heapsort", false);
+      xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded;charset=UTF-8");
+      xhttp.send("arrayData=" + array_to_sort);
+    }
+    </script>
+</head>
+<body style="font-family:Verdana;color:#aaaaaa;">
+
+<div style="background-color:#e5e5e5;padding:15px;text-align:center;">
+  <h1>Heap sorting</h1>
+</div>
+<div style="overflow:auto">
+  <div class="menu">
+    <a href="http://localhost:4000/">Home</a>
+    <a href="http://localhost:4000/public/rng.html">Random number Generator</a>
+    <a href="http://localhost:4000/public/mergesort.html">Merge sort</a>
+    <a href="http://localhost:4000/public/quicksort.html">Quick sort</a>
+    <a href="http://localhost:4000/public/insertionsort.html">Insertion sort</a>
+    <a href="http://localhost:4000/public/bubblesort.html">Bubble sort</a>
+  </div>
+  <div class="main">
+    <h2>Please enter data to sort:</h2>
+    <form onsubmit="callHeapSort()">
+        Data: <input id="data" type="text">
+        <input type="submit" value = "Sort">
+      </form>
+    </div>
+
+  <div class="right">
+    <h2>About</h2>
+    <p>In computer science, heapsort is a comparison-based sorting algorithm. Heapsort can be thought of as an improved selection sort: like that algorithm, it divides its input into a sorted and an unsorted region, and it iteratively shrinks the unsorted region by extracting the largest element and moving that to the sorted region. The improvement consists of the use of a heap data structure rather than a linear-time search to find the maximum.</p>
+    <p>Although somewhat slower in practice on most machines than a well-implemented quicksort, it has the advantage of a more favorable worst-case O(n log n) runtime. Heapsort is an in-place algorithm, but it is not a stable sort.</p>
+    <p>-source: Wikipedia</p>
+  </div>
+</div>
+
+<div style="background-color:#e5e5e5;text-align:center;padding:10px;margin-top:7px;">© copyright Varun kumar pande 1001722538</div>
+</body>
+</html>

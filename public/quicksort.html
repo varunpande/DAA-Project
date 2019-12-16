@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="shortcut icon" href="../img/favicon.ico" />
+  <title>Project</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+* {
+  box-sizing: border-box;
+}
+.menu {
+  float:left;
+  width:20%;
+  text-align:center;
+}
+.menu a {
+  background-color:#e5e5e5;
+  padding:8px;
+  margin-top:7px;
+  display:block;
+  width:100%;
+  color:black;
+}
+.main {
+  float:left;
+  width:60%;
+  padding:0 20px;
+}
+.right {
+  background-color:#e5e5e5;
+  float:left;
+  width:20%;
+  padding:15px;
+  margin-top:7px;
+  text-align:center;
+}
+
+@media only screen and (max-width:620px) {
+  /* For mobile phones: */
+  .menu, .main, .right {
+    width:100%;
+  }
+}
+</style>
+<script> 
+    function callQuickSort(){
+      array_to_sort = document.getElementById("data").value;
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+          document.write(this.responseText);
+        }
+      };
+      xhttp.open("POST", "http://localhost:4000/sort/quicksort", false);
+      xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded;charset=UTF-8");
+      xhttp.send("arrayData=" + array_to_sort);
+    }
+    </script>
+</head>
+<body style="font-family:Verdana;color:#aaaaaa;">
+
+<div style="background-color:#e5e5e5;padding:15px;text-align:center;">
+  <h1>Quick sorting</h1>
+</div>
+<div style="overflow:auto">
+  <div class="menu">
+    <a href="http://localhost:4000/">Home</a>
+    <a href="http://localhost:4000/public/rng.html">Random number Generator</a>
+    <a href="http://localhost:4000/public/mergesort.html">Merge sort</a>
+    <a href="http://localhost:4000/public/heapsort.html">Heap sort</a>
+    <a href="http://localhost:4000/public/insertionsort.html">Insertion sort</a>
+    <a href="http://localhost:4000/public/bubblesort.html">Bubble sort</a>
+  </div>
+  <div class="main">
+    <h2>Please enter data to sort:</h2>
+    <form onsubmit="callQuickSort()">
+        Data: <input id="data" type="text">
+        <input type="submit" value = "Sort">
+      </form>
+    </div>
+
+  <div class="right">
+    <h2>About</h2>
+    <p>Quicksort (sometimes called partition-exchange sort) is an efficient sorting algorithm, serving as a systematic method for placing the elements of a random access file or an array in order. Developed by British computer scientist Tony Hoare in 1959 and published in 1961, it is still a commonly used algorithm for sorting.Quicksort (sometimes called partition-exchange sort) is an efficient sorting algorithm, serving as a systematic method for placing the elements of a random access file or an array in order. Developed by British computer scientist Tony Hoare in 1959 and published in 1961, it is still a commonly used algorithm for sorting.</p>
+    <p>Quicksort is a comparison sort, meaning that it can sort items of any type for which a "less-than" relation (formally, a total order) is defined. Efficient implementations of Quicksort are not a stable sort, meaning that the relative order of equal sort items is not preserved. Quicksort can operate in-place on an array, requiring small additional amounts of memory to perform the sorting. It is very similar to selection sort, except that it does not always choose worst-case partition.</p>
+    <p>-source: Wikipedia</p>
+  </div>
+</div>
+
+<div style="background-color:#e5e5e5;text-align:center;padding:10px;margin-top:7px;">© copyright Varun kumar pande 1001722538</div>
+</body>
+</html>

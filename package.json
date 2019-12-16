@@ -1,0 +1,16 @@
+{
+  "name": "daa_project",
+  "version": "1.0.0",
+  "description": "project for DAA project submission",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "varunkumar.pande",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "chart.js": "^2.9.2",
+    "express": "^4.17.1"
+  }
+}

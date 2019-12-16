@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="shortcut icon" href="../img/favicon.ico" />
+  <title>Project</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+* {
+  box-sizing: border-box;
+}
+.menu {
+  float:left;
+  width:20%;
+  text-align:center;
+}
+.menu a {
+  background-color:#e5e5e5;
+  padding:8px;
+  margin-top:7px;
+  display:block;
+  width:100%;
+  color:black;
+}
+.main {
+  float:left;
+  width:60%;
+  padding:0 20px;
+}
+.right {
+  background-color:#e5e5e5;
+  float:left;
+  width:20%;
+  padding:15px;
+  margin-top:7px;
+  text-align:center;
+}
+
+@media only screen and (max-width:620px) {
+  /* For mobile phones: */
+  .menu, .main, .right {
+    width:100%;
+  }
+}
+</style>
+<script> 
+    function callRNG(){
+      upper_limit = document.getElementById("ulim").value;
+      lower_limit = document.getElementById("llim").value;
+      random_count = document.getElementById("rrange").value;
+      type_rng = document.getElementById("integer").checked;
+      if(type_rng){
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+          document.write(this.responseText);
+        }
+      };
+      xhttp.open("POST", "http://localhost:4000/rng/int", false);
+      xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded;charset=UTF-8");
+      xhttp.send("upRange=" + upper_limit +"&lowRange=" + lower_limit + "&numlimit=" + random_count);
+    }
+    else{
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+          document.write(this.responseText);
+        }
+      };
+      xhttp.open("POST", "http://localhost:4000/rng/float", false);
+      xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded;charset=UTF-8");
+      xhttp.send("upRange=" + upper_limit +"&lowRange=" + lower_limit + "&numlimit=" + random_count);
+    }
+  }
+</script>
+</head>
+<body style="font-family:Verdana;color:#aaaaaa;">
+
+<div style="background-color:#e5e5e5;padding:15px;text-align:center;">
+  <h1>Random number generator</h1>
+</div>
+<div style="overflow:auto">
+  <div class="menu">
+    <a href="http://localhost:4000/">Home</a>
+    <a href="http://localhost:4000/public/rng.html">Random number Generator</a>
+    <a href="http://localhost:4000/public/mergesort.html">Merge sort</a>
+    <a href="http://localhost:4000/public/heapsort.html">Heap sort</a>
+    <a href="http://localhost:4000/public/quicksort.html">Quick sort</a>
+    <a href="http://localhost:4000/public/insertionsort.html">Insertion sort</a>
+    <a href="http://localhost:4000/public/bubblesort.html">Bubble sort</a>
+  </div>
+  <div class="main">
+    <h2>Please enter data to sort:</h2>
+    <form onsubmit="callRNG()">
+        <p>Upper Limit: <input id="ulim" type="text"></p>
+        <p>Lower Limit: <input id="llim" type="text"></p>
+        <p>Number Of Random numbers: <input id="rrange" type="text"></p>
+        <p>Select Type of random number:</p>
+        <p>
+        <input type="radio" id="integer" name="typeRNG"> Integer<br>
+        <input type="radio" name="typeRNG"> Float<br>
+        </p>
+        <input type="submit" value="Get Random Numbers">
+      </form>
+    </div>
+
+  <div class="right">
+    <h2>About</h2>
+    <p>Use the random number generator to generate arrays of random number.</p>
+  </div>
+</div>
+
+<div style="background-color:#e5e5e5;text-align:center;padding:10px;margin-top:7px;">© copyright Varun kumar pande 1001722538</div>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="shortcut icon" href="../img/favicon.ico" />
+  <title>Project</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+* {
+  box-sizing: border-box;
+}
+.menu {
+  float:left;
+  width:20%;
+  text-align:center;
+}
+.menu a {
+  background-color:#e5e5e5;
+  padding:8px;
+  margin-top:7px;
+  display:block;
+  width:100%;
+  color:black;
+}
+.main {
+  float:left;
+  width:60%;
+  padding:0 20px;
+}
+.right {
+  background-color:#e5e5e5;
+  float:left;
+  width:20%;
+  padding:15px;
+  margin-top:7px;
+  text-align:center;
+}
+
+@media only screen and (max-width:620px) {
+  /* For mobile phones: */
+  .menu, .main, .right {
+    width:100%;
+  }
+}
+</style>
+<script> 
+    function callInsertionSort(){
+      array_to_sort = document.getElementById("data").value;
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+          document.write(this.responseText);
+        }
+      };
+      xhttp.open("POST", "http://localhost:4000/sort/insertionsort", false);
+      xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded;charset=UTF-8");
+      xhttp.send("arrayData=" + array_to_sort);
+    }
+    </script>
+</head>
+<body style="font-family:Verdana;color:#aaaaaa;">
+
+<div style="background-color:#e5e5e5;padding:15px;text-align:center;">
+  <h1>Insertion sorting</h1>
+</div>
+<div style="overflow:auto">
+  <div class="menu">
+    <a href="http://localhost:4000/">Home</a>
+    <a href="http://localhost:4000/public/rng.html">Random number Generator</a>
+    <a href="http://localhost:4000/public/mergesort.html">Merge sort</a>
+    <a href="http://localhost:4000/public/heapsort.html">Heap sort</a>
+    <a href="http://localhost:4000/public/quicksort.html">Quick sort</a>
+    <a href="http://localhost:4000/public/bubblesort.html">Bubble sort</a>
+  </div>
+  <div class="main">
+    <h2>Please enter data to sort:</h2>
+    <form onsubmit="callInsertionSort()">
+        Data: <input id="data" type="text">
+        <input type="submit" value = "Sort">
+      </form>
+    </div>
+
+  <div class="right">
+    <h2>About</h2>
+    <p>Insertion sort is a simple sorting algorithm that builds the final sorted array (or list) one item at a time. It is much less efficient on large lists than more advanced algorithms such as quicksort, heapsort, or merge sort.</p>
+    <p>However, insertion sort provides several advantages:</p>
+    <ul>
+        <li>Efficient for (quite) small data sets, much like other quadratic sorting algorithms.</li>
+        <li>More efficient in practice than most other simple quadratic (i.e., O(n2)) algorithms such as selection sort or bubble sort.</li>
+        <li>Adaptive, i.e., efficient for data sets that are already substantially sorted: the time complexity is O(kn) when each element in the input is no more than k places away from its sorted position.</li>
+        <li>Stable; i.e., does not change the relative order of elements with equal keys.</li>
+        <li>In-place; i.e., only requires a constant amount O(1) of additional memory space.</li>
+        <li>When people manually sort cards in a bridge hand, most use a method that is similar to insertion sort.</li>
+      </ul>
+    <p>-source: Wikipedia</p>
+  </div>
+</div>
+
+<div style="background-color:#e5e5e5;text-align:center;padding:10px;margin-top:7px;">© copyright Varun kumar pande 1001722538</div>
+</body>
+</html>
