@@ -51,7 +51,7 @@
           document.write(this.responseText);
         }
       };
-      xhttp.open("POST", "http://localhost:4000/sort/heapsort", false);
+      xhttp.open("POST", "http://sorting-demo.herokuapp.com/sort/heapsort", false);
       xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded;charset=UTF-8");
       xhttp.send("arrayData=" + array_to_sort);
     }
@@ -64,12 +64,12 @@
 </div>
 <div style="overflow:auto">
   <div class="menu">
-    <a href="http://localhost:4000/">Home</a>
-    <a href="http://localhost:4000/public/rng.html">Random number Generator</a>
-    <a href="http://localhost:4000/public/mergesort.html">Merge sort</a>
-    <a href="http://localhost:4000/public/quicksort.html">Quick sort</a>
-    <a href="http://localhost:4000/public/insertionsort.html">Insertion sort</a>
-    <a href="http://localhost:4000/public/bubblesort.html">Bubble sort</a>
+    <a href="http://sorting-demo.herokuapp.com/">Home</a>
+    <a href="http://sorting-demo.herokuapp.com/public/rng.html">Random number Generator</a>
+    <a href="http://sorting-demo.herokuapp.com/public/mergesort.html">Merge sort</a>
+    <a href="http://sorting-demo.herokuapp.com/public/quicksort.html">Quick sort</a>
+    <a href="http://sorting-demo.herokuapp.com/public/insertionsort.html">Insertion sort</a>
+    <a href="http://sorting-demo.herokuapp.com/public/bubblesort.html">Bubble sort</a>
   </div>
   <div class="main">
     <h2>Please enter data to sort:</h2>
